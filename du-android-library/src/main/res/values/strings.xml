@@ -1,0 +1,14 @@
+<resources>
+    <string name="txt_yes">Có</string>
+    <string name="txt_no">Không</string>
+    <string name="txt_ok">Đồng ý</string>
+    <string name="txt_cancel">Hủy</string>
+    <string name="msg_wait">Vui lòng chờ#8230;</string>
+    <string name="msg_http_400_err">Yêu cầu không hợp lệ</string>
+    <string name="msg_http_401_err">Không có quyền truy cập</string>
+    <string name="msg_http_403_err">Truy cập bị cấm</string>
+    <string name="msg_http_404_err">Không tìm thấy nội dung yêu cầu</string>
+    <string name="msg_http_500_err">Máy chủ gặp lỗi khi xử lý yêu cầu</string>
+    <string name="msg_http_502_err">Máy chủ đang gặp lỗi</string>
+    <string name="msg_unk_err">Đã có lỗi xãy ra</string>
+</resources>

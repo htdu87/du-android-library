@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_yes">Yes</string>
+    <string name="txt_no">No</string>
+    <string name="txt_ok">OK</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="msg_wait">Please wait#8230;</string>
+    <string name="msg_http_400_err">Bad request</string>
+    <string name="msg_http_401_err">Unauthorized</string>
+    <string name="msg_http_403_err">Forbidden</string>
+    <string name="msg_http_404_err">Not found</string>
+    <string name="msg_http_500_err">Internal server error</string>
+    <string name="msg_http_502_err">Bad gateway</string>
+    <string name="msg_unk_err">Error occurred</string>
+</resources>

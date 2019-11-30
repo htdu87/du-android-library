@@ -1,0 +1,2 @@
+include ':test-library-app', ':du-android-library'
+rootProject.name='Du Android Library'
