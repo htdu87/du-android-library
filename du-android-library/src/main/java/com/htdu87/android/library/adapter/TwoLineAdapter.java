@@ -79,6 +79,7 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
         TwoLineItem item= (TwoLineItem) data.get(position);
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(this);
+
         holder.text.setText(item.getLineOne());
         holder.text2.setText(item.getLineTwo());
 
