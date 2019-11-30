@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.htdu87.android.library.R;
@@ -20,11 +21,24 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     private List<MenuItem> data;
     private LayoutInflater inflater;
     private MenuAdapterEvents events;
+    private Context context;
+    private Integer tinColor;
+    private Integer drawableId;
 
     public MenuAdapter(List<MenuItem> data, Context c, MenuAdapterEvents e) {
         this.data = data;
         inflater=LayoutInflater.from(c);
         events=e;
+        context=c;
+    }
+
+    public MenuAdapter(List<MenuItem> data, Context c, MenuAdapterEvents e,Integer tinColor,Integer drawableId) {
+        this.data = data;
+        inflater=LayoutInflater.from(c);
+        events=e;
+        context=c;
+        this.tinColor=tinColor;
+        this.drawableId=drawableId;
     }
 
     public void add(MenuItem menuItem){
@@ -34,17 +48,14 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     @NonNull
     @Override
     public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MenuViewHolder(inflater.inflate(R.layout.item_menu,parent,false));
+        return new MenuViewHolder(inflater.inflate(R.layout.item_menu,parent,false),
+                tinColor,drawableId,context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
         MenuItem item=data.get(position);
         holder.lblName.setText(item.getName());
-        if (item.getIcon()==null)
-            holder.imgIcon.setImageDrawable(null);
-        else
-            holder.imgIcon.setImageResource(item.getIcon());
 
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(this);
@@ -68,9 +79,14 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         ImageView imgIcon;
         TextView lblName;
 
-        MenuViewHolder(@NonNull View itemView) {
+        MenuViewHolder(@NonNull View itemView, Integer tinColor, Integer resId, Context c) {
             super(itemView);
             imgIcon=itemView.findViewById(R.id.img_icon);
+            if (tinColor!=null)
+                imgIcon.setColorFilter(ContextCompat.getColor(c,tinColor));
+            if (resId!=null)
+                imgIcon.setImageResource(resId);
+
             lblName=itemView.findViewById(R.id.lbl_name);
         }
     }

@@ -1,10 +1,10 @@
-package com.htdu87.android.library;
+package com.htdu87.testlibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class NoActionbarActivity extends AppCompatActivity {
+public class FullScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

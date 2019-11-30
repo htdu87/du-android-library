@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.htdu87.android.library.R;
@@ -20,15 +21,22 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
     private LayoutInflater inflater;
     private List data;
     private ListEvents events;
+    private Context context;
+    private Integer tinColor;
+    private Integer drawableId;
 
     public TwoLineAdapter(Context c, List data) {
         this.data = data;
         inflater=LayoutInflater.from(c);
+        context=c;
     }
 
-    public TwoLineAdapter(Context c, List data, ListEvents events) {
+    public TwoLineAdapter(Context c, List data, ListEvents events,Integer tinColor,Integer drawableId) {
         this(c,data);
         this.events = events;
+        context=c;
+        this.tinColor=tinColor;
+        this.drawableId=drawableId;
     }
 
     public void setListEventsListener(ListEvents events) {
@@ -62,7 +70,8 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
     @NonNull
     @Override
     public TwoLineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new TwoLineViewHolder(inflater.inflate(R.layout.item_two_line,parent,false));
+        return new TwoLineViewHolder(inflater.inflate(R.layout.item_two_line,parent,false),
+                tinColor, drawableId,context);
     }
 
     @Override
@@ -72,13 +81,6 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
         holder.itemView.setOnClickListener(this);
         holder.text.setText(item.getLineOne());
         holder.text2.setText(item.getLineTwo());
-
-        if (item.getIcon()!=null){
-            holder.icon.setImageResource(item.getIcon());
-            holder.icon.setVisibility(View.VISIBLE);
-        } else {
-            holder.icon.setVisibility(View.GONE);
-        }
 
         if (events!=null && position==getItemCount()-1){
             events.onBottom();
@@ -106,11 +108,17 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
         TextView text2;
         ImageView icon;
 
-        TwoLineViewHolder(@NonNull View itemView) {
+        TwoLineViewHolder(@NonNull View itemView,Integer tinColor, Integer resId, Context c) {
             super(itemView);
             text=itemView.findViewById(R.id.text);
             text2=itemView.findViewById(R.id.text2);
             icon=itemView.findViewById(R.id.img_icon);
+            if (tinColor!=null)
+                icon.setColorFilter(ContextCompat.getColor(c,tinColor));
+            if (resId!=null)
+                icon.setImageResource(resId);
+            else
+                icon.setVisibility(View.GONE);
         }
     }
 }

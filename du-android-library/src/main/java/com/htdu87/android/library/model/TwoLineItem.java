@@ -7,12 +7,8 @@ public abstract class TwoLineItem extends OneLineItem {
         super();
     }
 
-    public TwoLineItem(String lineOne, Integer icon) {
-        super(lineOne, icon);
-    }
-
-    public TwoLineItem(String lineOne, Integer icon, String lineTwo) {
-        super(lineOne, icon);
+    public TwoLineItem(String lineOne,  String lineTwo) {
+        super(lineOne);
         this.lineTwo = lineTwo;
     }
 

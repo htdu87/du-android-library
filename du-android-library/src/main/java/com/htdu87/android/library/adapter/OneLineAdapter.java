@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.htdu87.android.library.R;
@@ -20,15 +21,22 @@ public class OneLineAdapter extends RecyclerView.Adapter<OneLineAdapter.OneLineV
     private LayoutInflater inflater;
     private List data;
     private ListEvents events;
+    private Context context;
+    private Integer tinColor;
+    private Integer drawableId;
 
     public OneLineAdapter(Context c, List data) {
         this.data = data;
         inflater=LayoutInflater.from(c);
+        context=c;
     }
 
-    public OneLineAdapter(Context c, List data, ListEvents events) {
+    public OneLineAdapter(Context c, List data, ListEvents events,Integer tinColor,Integer drawableId) {
         this(c,data);
         this.events = events;
+        context=c;
+        this.tinColor=tinColor;
+        this.drawableId=drawableId;
     }
 
     public void setListEventsListener(ListEvents events) {
@@ -53,7 +61,8 @@ public class OneLineAdapter extends RecyclerView.Adapter<OneLineAdapter.OneLineV
     @NonNull
     @Override
     public OneLineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new OneLineViewHolder(inflater.inflate(R.layout.item_one_line,parent,false));
+        return new OneLineViewHolder(inflater.inflate(R.layout.item_one_line,parent,false),
+                tinColor, drawableId,context);
     }
 
     @Override
@@ -62,11 +71,9 @@ public class OneLineAdapter extends RecyclerView.Adapter<OneLineAdapter.OneLineV
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(this);
         holder.text.setText(item.getLineOne());
-        if (item.getIcon()!=null){
-            holder.icon.setImageResource(item.getIcon());
-            holder.icon.setVisibility(View.VISIBLE);
-        } else {
-            holder.icon.setVisibility(View.GONE);
+
+        if (events!=null && position==getItemCount()-1){
+            events.onBottom();
         }
     }
 
@@ -90,10 +97,16 @@ public class OneLineAdapter extends RecyclerView.Adapter<OneLineAdapter.OneLineV
         TextView text;
         ImageView icon;
 
-        OneLineViewHolder(@NonNull View itemView) {
+        OneLineViewHolder(@NonNull View itemView,Integer tinColor, Integer resId, Context c) {
             super(itemView);
             text=itemView.findViewById(R.id.text);
             icon=itemView.findViewById(R.id.img_icon);
+            if (tinColor!=null)
+                icon.setColorFilter(ContextCompat.getColor(c,tinColor));
+            if (resId!=null)
+                icon.setImageResource(resId);
+            else
+                icon.setVisibility(View.GONE);
         }
     }
 }

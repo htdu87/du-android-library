@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.htdu87.android.library"
+        applicationId 'com.htdu87.testlibrary'
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -27,5 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':du-android-library')
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     //implementation 'com.htdu87:android-library:0.0.1-test'
 }

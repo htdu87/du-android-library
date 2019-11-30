@@ -1,4 +1,4 @@
-package com.htdu87.android.library;
+package com.htdu87.testlibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
