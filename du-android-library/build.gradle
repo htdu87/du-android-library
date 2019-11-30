@@ -1,4 +1,26 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = "du-android-library"
+    bintrayName = "com.htdu87.android.library"
+    libraryName = "du-android-library"
+
+    publishedGroupId = "com.htdu87"
+    artifact = "android-library"
+    libraryVersion = "1.0.0"
+
+    libraryDescription = "An Android library for faster develop Android app"
+    siteUrl = "https://github.com/htdu87/du-android-library"
+    gitUrl = "https://github.com/htdu87/du-android-library.git"
+    developerId = "htdu87"
+    developerName = "Du Huynh"
+    developerEmail = "huynhthanhdu@gmail.com"
+    licenseName = "The Apache Software Licsense, Version 2.0"
+    licenseUrl = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 29
@@ -26,9 +48,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+}
+
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }

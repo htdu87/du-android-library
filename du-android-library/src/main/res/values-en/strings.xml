@@ -4,7 +4,7 @@
     <string name="txt_no">No</string>
     <string name="txt_ok">OK</string>
     <string name="txt_cancel">Cancel</string>
-    <string name="msg_wait">Please wait#8230;</string>
+    <string name="msg_wait">Please wait&#8230;</string>
     <string name="msg_http_400_err">Bad request</string>
     <string name="msg_http_401_err">Unauthorized</string>
     <string name="msg_http_403_err">Forbidden</string>

@@ -3,7 +3,7 @@
     <string name="txt_no">Không</string>
     <string name="txt_ok">Đồng ý</string>
     <string name="txt_cancel">Hủy</string>
-    <string name="msg_wait">Vui lòng chờ#8230;</string>
+    <string name="msg_wait">Vui lòng chờ&#8230;</string>
     <string name="msg_http_400_err">Yêu cầu không hợp lệ</string>
     <string name="msg_http_401_err">Không có quyền truy cập</string>
     <string name="msg_http_403_err">Truy cập bị cấm</string>
