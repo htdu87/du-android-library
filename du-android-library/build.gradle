@@ -9,7 +9,7 @@ ext {
 
     publishedGroupId = "com.htdu87"
     artifact = "android-library"
-    libraryVersion = "1.0.0"
+    libraryVersion = "1.0.1"
 
     libraryDescription = "An Android library for faster develop Android app"
     siteUrl = "https://github.com/htdu87/du-android-library"
@@ -30,8 +30,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 100
-        versionName "1.0.0"
+        versionCode 101
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
