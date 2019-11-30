@@ -25,7 +25,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     private Integer tinColor;
     private Integer drawableId;
 
-    public MenuAdapter(List<MenuItem> data, Context c, MenuAdapterEvents e) {
+    public MenuAdapter(List<MenuItem> data, Context c, MenuAdapterEvents e,Integer tinColor) {
         this.data = data;
         inflater=LayoutInflater.from(c);
         events=e;
