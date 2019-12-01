@@ -31,6 +31,13 @@ public class TwoLineAdapter extends RecyclerView.Adapter<TwoLineAdapter.TwoLineV
         context=c;
     }
 
+    public TwoLineAdapter(Context c, List data,ListEvents events) {
+        this.data = data;
+        this.events = events;
+        inflater=LayoutInflater.from(c);
+        context=c;
+    }
+
     public TwoLineAdapter(Context c, List data, ListEvents events,Integer tinColor,Integer drawableId) {
         this(c,data);
         this.events = events;

@@ -31,6 +31,13 @@ public class OneLineAdapter extends RecyclerView.Adapter<OneLineAdapter.OneLineV
         context=c;
     }
 
+    public OneLineAdapter(Context c, List data,ListEvents events) {
+        this.data = data;
+        inflater=LayoutInflater.from(c);
+        context=c;
+        this.events = events;
+    }
+
     public OneLineAdapter(Context c, List data, ListEvents events,Integer tinColor,Integer drawableId) {
         this(c,data);
         this.events = events;
